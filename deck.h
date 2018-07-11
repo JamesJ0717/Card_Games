@@ -1,13 +1,16 @@
 //Card data type
 #include <iostream>
+#include "card.h"
 
 using namespace std;
 
 class Deck
 {
-    string suit, value;
     
     public:
-        void shuffle(int);
+        Card card;
+        int size;
+        void shuffle(Deck);
+        void display(Deck);
         
 };
