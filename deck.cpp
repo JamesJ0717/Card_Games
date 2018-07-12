@@ -5,12 +5,12 @@
 using namespace std;
 
 //Makes the deck
-Deck Deck::makeDeck (void){
+Deck Deck::makeDeck (int size){
 
     Deck deck;
     // Cycle through each card and set cardSuit
     // In a standard deck, each suit has 13 cards
-    for(int i=0;i<deck.size;i++){
+    for(int i=0;i<size;i++){
         switch (i%4 + 1){
             case 1:
                 deck.cardSuit[i] = "Diamonds";
@@ -136,14 +136,16 @@ void Deck::deal(Deck deck, int handSize){
     for(int i=0; i< handSize; i++){    
         int playerCard = rand() % 52 + 1;
         dealtCards[i] = playerCard;
-        for(int j=0; j<=sizeof(dealtCards); j++){
+        for(int j=1; j<=sizeof(dealtCards); j++){
             if(dealtCards[j] == playerCard){
-                playerCard-=1;
+                playerCard += 1;
                 dealtCards[i] = playerCard;
             }
         }
-        cout<<deck.cardValue[playerCard]<<" of "<<deck.cardSuit[playerCard]<<endl;
+        cout<<dealtCards[i]<<" "<<playerCard<<" "<<dealtCards[i]<<endl;
+        // cout<<deck.cardValue[playerCard]<<" of "<<deck.cardSuit[playerCard]<<endl;
         // cout<<playerCard<<endl;
+        // cout<<dealtCards[i]<<endl;
     }
 }
 

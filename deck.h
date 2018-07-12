@@ -8,7 +8,7 @@ class Deck{
         string cardSuit[size] = {""};
         string cardValue[size] = {""};
 
-        Deck makeDeck(void);
+        Deck makeDeck(int);
 
         void deal(Deck, int);
 
