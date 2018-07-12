@@ -6,13 +6,12 @@ using namespace std;
 // void deal(int deck);
 
 int main(void){
-    // Card card;
-    Deck cards;
-
-    cout<<cards.size<<endl;
-
-    cards.shuffle(cards);
+    
+    // Create a new deck of cards
+    Deck cards = cards.makeDeck();
     // cards.display(cards);
     
-    cout<<" "<<cards.cardValue[2]<<endl;
+    int handSize = 0;
+    cin>>handSize;
+    cards.deal(cards, handSize);  
 }

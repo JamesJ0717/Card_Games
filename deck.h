@@ -4,9 +4,15 @@ using namespace std;
 
 class Deck{
     public:
-        int size = 52;
-        string cardSuit[52] = {}, cardValue[52] = {};
-        void shuffle(Deck);
+        const static int size = 52;
+        string cardSuit[size] = {""};
+        string cardValue[size] = {""};
+
+        Deck makeDeck(void);
+
+        void deal(Deck, int);
+
+
         void display(Deck);
         
 };
