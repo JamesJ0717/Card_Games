@@ -11,11 +11,14 @@ int main(void){
     cout<<"How many cards are you playing with? ";
     cin>>size;
     // Create a new deck of cards
-    Deck cards = cards.makeDeck(size);
+    Deck cards;
+    cards = cards.makeDeck(size);
     // cards.display(cards);
     
+    //Dealing a hand
     int handSize = 0;
     cout<<"How many cards are in your hand? ";
     cin>>handSize;
     cards.deal(cards, handSize);  
 }
+ 

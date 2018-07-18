@@ -128,6 +128,7 @@ void Deck::display(Deck deck){
     
 }
 
+//Deals a hand
 //Need to fix getting same card twice
 void Deck::deal(Deck deck, int handSize){
 	// Random number between 1-52
@@ -136,9 +137,9 @@ void Deck::deal(Deck deck, int handSize){
     for(int i=0; i< handSize; i++){    
         int playerCard = rand() % 52 + 1;
         dealtCards[i] = playerCard;
-        for(int j=1; j<=sizeof(dealtCards); j++){
+        for(int j=1; j<=handSize; j++){
             if(dealtCards[j] == playerCard){
-                playerCard += 1;
+                playerCard += 3;
                 dealtCards[i] = playerCard;
             }
         }
