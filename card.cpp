@@ -1,15 +1,16 @@
 #include <iostream>
 #include <vector>
+#include <time.h>
 
 using namespace std;
 
 class Card
 {
   public:
-	int size;
-	Card() : cardSuits(52), cardValues(52)
+	const static int size = 52;
+	Card() : cardSuits(size), cardValues(size)
 	{
-		for (int i = 0; i < 52; i++)
+		for (int i = 0; i < size; i++)
 		{
 			cardSuits[i] = "0";
 			cardValues[i] = "0";
@@ -133,10 +134,9 @@ class Card
 	// Display
 	void display(Card cards)
 	{
-
-		for (int i = 0; i < size; i++)
+		for (int i = 0; i < cardValues.size(); i++)
 		{
-			cout << cardValues[i] << " of " << cardSuits.at(i) << endl;
+			cout << cardValues[i] << " of " << cardSuits[i] << endl;
 		}
 	}
 
@@ -144,33 +144,27 @@ class Card
 	//Need to fix getting same cards twice
 	void deal(Card cards, int handSize)
 	{
-		// Random number between 1-52
+		// Random number for each card
 		srand(time(NULL));
-		int dealtcardss[handSize];
+		// int dealtcardss[handSize];
+		int j = 52;
 		for (int i = 0; i < handSize; i++)
 		{
-			int playercards = rand() % 52 + 1;
-			dealtcardss[i] = playercards;
-			for (int j = 1; j <= handSize; j++)
-			{
-				if (dealtcardss[j] == playercards)
-				{
-					playercards += 3;
-					dealtcardss[i] = playercards;
-				}
-			}
-			cout << cardValues[i] << " of " << cardSuits.at(i) << endl;
+			int playercards = rand() % j;
+			cout << cardValues[playercards] << " of " << cardSuits[playercards] << endl;
+			removeCard(cards, playercards);
 			// cout<<playercards<<endl;
 			// cout<<dealtcardss.at(i)<<endl;
+			j--;
 		}
 	}
 
 	void removeCard(Card cards, int cardToRemove)
 	{
-		cout << cardToRemove;
+		cardSuits.erase(cardSuits.begin() + cardToRemove);
+		cardValues.erase(cardValues.begin() + cardToRemove);
 	}
 
-  protected:
 	vector<string> cardSuits;
 	vector<string> cardValues;
 };
