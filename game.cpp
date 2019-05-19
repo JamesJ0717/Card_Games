@@ -1,27 +1,28 @@
 #include <iostream>
-#include "card.cpp"
+#include "blackjack.cpp"
 
 using namespace std;
 
 int main(void)
 {
-    Card cards;
-    int size = 52;
+    Blackjack bj;
+    int game = 0;
 
-    // cout << "How many cards are you playing with? ";
-    // cin >> size;
-    // cards.size = size;
-    // Create a new deck of cards
+    //Choose game
+    cout << "What game would you like to play?" << endl;
+    cout << "1: Blackjack" << endl;
+    cin >> game;
 
-    cards.makeDeck(size);
-    // cards.display(cards);
-    // cout << cards.cardValues.size();
+    srand(time(NULL));
+    switch (game)
+    {
+    case 1:
+        bj.play();
+        break;
 
-    //Dealing a hand
-    int handSize = 0;
-    cout << "How many cards are in your hand? ";
-    cin >> handSize;
-    cards.deal(cards, handSize);
+    default:
+        break;
+    }
 
     //     cards.display(cards);
 }

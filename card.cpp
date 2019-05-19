@@ -6,7 +6,7 @@ using namespace std;
 
 class Card
 {
-  public:
+public:
 	const static int size = 52;
 	Card() : cardSuits(size), cardValues(size)
 	{
@@ -15,6 +15,7 @@ class Card
 			cardSuits[i] = "0";
 			cardValues[i] = "0";
 		}
+		makeDeck(52);
 	}
 
 	//Makes the deck
@@ -148,13 +149,13 @@ class Card
 		srand(time(NULL));
 		// int dealtcardss[handSize];
 		int j = 52;
+
 		for (int i = 0; i < handSize; i++)
 		{
 			int playercards = rand() % j;
 			cout << cardValues[playercards] << " of " << cardSuits[playercards] << endl;
 			removeCard(cards, playercards);
-			// cout<<playercards<<endl;
-			// cout<<dealtcardss.at(i)<<endl;
+
 			j--;
 		}
 	}
